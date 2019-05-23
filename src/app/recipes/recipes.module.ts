@@ -7,7 +7,7 @@ import { RecipesStartComponent } from "./recipes-start/recipes-start.component";
 import { RecipeEditComponent } from "./recipe-edit/recipe-edit.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { RecipesRoutingModule } from "./recipe-routing.module";
+import { RecipesRoutingModule } from "./recipes-routing.module";
 import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
