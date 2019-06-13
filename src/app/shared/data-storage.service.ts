@@ -3,7 +3,6 @@ import { Http, Response } from "@angular/http";
 import { RecipeService } from "../recipes/recipe.service";
 import { Recipe } from "../recipes/recipe.model";
 import { map } from "rxjs/operators";
-import * as firebase from 'firebase';
 import { AuthService } from "../auth/auth.service";
 
 @Injectable()
