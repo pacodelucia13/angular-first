@@ -14,16 +14,11 @@ export class HeaderComponent {
   }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes()
-      .subscribe(
-        (response: Response) => {
-          console.log(response);
-        }
-      );
+    this.dataStorageService.storeRecipes();
   }
 
   onFetchData() {
-    this.dataStorageService.getRecipes();
+    this.dataStorageService.fetchRecipes();
   }
 
   onLogout() {

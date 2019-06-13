@@ -6,7 +6,7 @@ import { map } from "rxjs/operators";
 import { AuthService } from "../auth/auth.service";
 import { HttpClient } from "@angular/common/http";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DataStorageService {
     constructor(private http: HttpClient,
         private recipeService: RecipeService,
@@ -15,14 +15,17 @@ export class DataStorageService {
     storeRecipes() {
         const token = this.authService.getToken();
         return this.http.put('https://ng-recipe-book-5f784.firebaseio.com/recipes.json?auth=' + token,
-            this.recipeService.getRecipes());
+            this.recipeService.getRecipes()).subscribe(
+                response => {
+                    console.log(response);
+                }
+            );
     }
 
-    getRecipes() {
+    fetchRecipes() {
         const token = this.authService.getToken();
-        this.http.get('https://ng-recipe-book-5f784.firebaseio.com/recipes.json?auth=' + token)
-            .pipe(map((response: Response) => {
-                const recipes: Recipe[] = response.json();
+        this.http.get<Recipe[]>('https://ng-recipe-book-5f784.firebaseio.com/recipes.json?auth=' + token)
+            .pipe(map((recipes: Recipe[]) => {
                 for (let recipe of recipes) {
                     if (!recipe['ingredients']) {
                         console.log(recipe);
