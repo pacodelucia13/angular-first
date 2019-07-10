@@ -4,6 +4,7 @@ import { SignupComponent } from "./signup/signup.component";
 import { FormsModule } from "@angular/forms";
 import { AuthRoutingModule } from "./auth-routing.module";
 import { AuthComponent } from "./auth.component";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [
@@ -12,6 +13,7 @@ import { AuthComponent } from "./auth.component";
         AuthComponent
     ],
     imports: [
+        SharedModule,
         FormsModule,
         AuthRoutingModule
     ]
