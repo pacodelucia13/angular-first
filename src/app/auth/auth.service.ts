@@ -45,6 +45,7 @@ export class AuthService {
         if (!errorRes.error || !errorRes.error.error) {
             throwError(errorMessage);
         }
+        console.log(errorRes.error.error.message);
         switch (errorRes.error.error.message) {
             case 'EMAIL_EXISTS':
                 errorMessage = 'The email address is already in use by another account.'; 
